@@ -1,0 +1,16 @@
+<a routerLink="login">Have an account?</a>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div>
+        <input type="text" placeholder="name" formControlName="fname">
+    </div>
+    <div>
+        <input type="text" placeholder="last name" formControlName="lname">
+    </div>
+    <div>
+        <input type="text" placeholder="email" formControlName="email">
+    </div>
+    <div>
+        <input type="text" placeholder="password" formControlName="password">
+    </div>
+    <button type="submit">Submit</button>
+</form>
