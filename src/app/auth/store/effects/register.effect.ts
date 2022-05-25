@@ -1,5 +1,6 @@
 import { HttpErrorResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { Router } from "@angular/router";
 import { createEffect, Actions, ofType } from "@ngrx/effects";
 import { catchError, map, of, retry, switchMap, tap } from "rxjs";
 import { LocalStoreService } from "src/app/shared/services/local-store.service";
@@ -20,12 +21,16 @@ export class RegisterEffect {
                             return registerSuccessAction({ currentUser })
                         }),
                         catchError((errResp: HttpErrorResponse) =>
-                            (of(registerFailureAction(errResp))))
-                    )
+                            (of(registerFailureAction(errResp)))))
             }),
-            tap(() => console.log('registered'))
-        )
-    )
+            ofType(registerSuccessAction),
+            tap(() => this.router.navigateByUrl('/'))
+        ), { dispatch: false })
 
-    constructor(private actions$: Actions, private authService: AuthService, private localstore: LocalStoreService) { }
+    constructor(
+        private actions$: Actions,
+        private authService: AuthService,
+        private localstore: LocalStoreService,
+        private router: Router
+    ) { }
 }
