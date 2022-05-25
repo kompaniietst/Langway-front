@@ -8,23 +8,29 @@ import { HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from './components/register/register.component';
 import { reducers } from './store/reducers/reducers';
 import { EffectsModule } from '@ngrx/effects';
-import { RegisterEffect } from './store/effects/auth-register.effect';
+import { RegisterEffect } from './store/effects/register.effect';
+import { LocalStoreService } from '../shared/services/local-store.service';
+import { LoginComponent } from './components/login/login.component';
+import { LoginEffect } from './store/effects/login.effect';
 
 const routes: Routes = [
-  { path: "register", component: RegisterComponent }
+  { path: "register", component: RegisterComponent },
+  { path: "login", component: LoginComponent }
 ];
 
 @NgModule({
   declarations: [
     RegisterComponent,
+    LoginComponent,
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
     StoreModule.forFeature('auth', reducers),
-    EffectsModule.forFeature([RegisterEffect]),
+    EffectsModule.forFeature([RegisterEffect, LoginEffect]),
     HttpClientModule,
     ReactiveFormsModule
-  ]
+  ],
+  providers: [LocalStoreService]
 })
 export class AuthModule { }

@@ -7,8 +7,5 @@ export const isSubmittingSelector = createSelector
     (authFeatureSelector, (authState: AuthStateInterface) => authState.isSubmitting);
 
 export const errorSelector = createSelector
-    (authFeatureSelector, (authState: AuthStateInterface) =>{
-        console.log('in selector    ',authState.error);
-        
-       return authState.error
-    } );
+    (authFeatureSelector, (authState: AuthStateInterface) => authState.error);
+
