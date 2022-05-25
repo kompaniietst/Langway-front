@@ -1,5 +1,5 @@
 
-export interface CurrentUser {
+export interface CurrentUserInterface {
     id: string;
     fname: string;
     lname: string;
