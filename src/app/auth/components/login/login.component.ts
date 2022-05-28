@@ -3,7 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { AuthService } from '../../services/auth.service';
-import { LoginAction } from '../../store/actions/login.actions';
+import { loginAction } from '../../store/actions/login.actions';
 import { errorSelector, isSubmittingSelector } from '../../store/selectors';
 
 @Component({
@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
     this.initForm();
     console.log('e');
 
-    this.store.select(errorSelector).subscribe(e=>console.log('EEE',e));
+    this.store.select(errorSelector).subscribe(e => console.log('EEE', e));
 
     this.isSubmitting$ = this.store.select(isSubmittingSelector);
     this.error$ = this.store.select(errorSelector);
@@ -39,8 +39,6 @@ export class LoginComponent implements OnInit {
     console.log(this.form.value);
 
     this.store.dispatch(
-      LoginAction({
-        request: this.form.value
-      }));
+      loginAction({ request: this.form.value }));
   }
 }

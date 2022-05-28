@@ -9,10 +9,12 @@ import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
 import { AuthService } from './auth/services/auth.service';
 import { EffectsModule } from '@ngrx/effects';
+import { HeaderComponent } from './shared/components/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
