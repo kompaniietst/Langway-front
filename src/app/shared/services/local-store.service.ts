@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class LocalStoreService {
   set(key: string, data: any): void {
     try {
-      window.localStorage.setItem(key, JSON.stringify(data));
+      localStorage.setItem(key, JSON.stringify(data));
     }
     catch (err) {
       console.log('err', err);
@@ -15,7 +15,7 @@ export class LocalStoreService {
 
   get(key: string): any {
     try {
-      let data = window.localStorage.getItem(key);
+      let data = JSON.parse(localStorage.getItem(key) || '');
       return data;
     }
     catch (err) {
@@ -24,7 +24,7 @@ export class LocalStoreService {
     }
   }
 
-  remove(key: string) {
-    window.localStorage.clear();
+  remove() {alert();
+    localStorage.clear();
   }
 }

@@ -2,3 +2,5 @@
 <a routerLink="/login">Login</a>
 
 {{ (currentUser$ | async)?.fname }}
+
+<a (click)="logout()">Logout</a>

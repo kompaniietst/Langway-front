@@ -3,6 +3,7 @@ import { AuthStateInterface } from "src/app/auth/types/auth-state.interface";
 import { loginAction, loginFailureAction, loginSuccessAction } from "../actions/login.actions";
 import { registerAction, registerFailureAction, registerSuccessAction } from "../actions/register.actions";
 import { getCurrentUserAction, getCurrentUserFailureAction, getCurrentUserSuccessAction } from "../actions/current-user.action";
+import { logoutAction } from "../actions/logout.action";
 
 const initialState: AuthStateInterface = {
     isSubmitting: null,
@@ -67,6 +68,12 @@ const authReducer = createReducer(
             currentUser: null,
             isLoggedIn: false
         })),
+    on(logoutAction,
+        (state: AuthStateInterface) => ({
+            ...state,
+            currentUser: null
+        })),
+
 );
 
 export function reducers(state: AuthStateInterface, action: Action) {

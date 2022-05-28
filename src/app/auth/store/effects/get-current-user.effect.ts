@@ -1,5 +1,4 @@
 import { Injectable } from "@angular/core";
-import { Router } from "@angular/router";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { catchError, map, of, switchMap, tap } from "rxjs";
 import { LocalStoreService } from "src/app/shared/services/local-store.service";
@@ -12,18 +11,23 @@ export class GetCurrentUserEffect {
     login$ = createEffect(() =>
         this.actions$.pipe(
             ofType(getCurrentUserAction),
-            switchMap(() =>
-                this.authService
+            switchMap(() => {
+                const token = this.localstore.get("token");
+                console.log(token);
+                
+
+                if (!token)
+                    return of(getCurrentUserFailureAction());
+
+                return this.authService
                     .getCurrentUser().pipe(
                         map((currentUser: CurrentUserInterface) => {
-                            const token = this.localstore.get("token");
-                            return token
-                                ? getCurrentUserSuccessAction({ currentUser })
-                                : getCurrentUserFailureAction()
+                            return getCurrentUserSuccessAction({ currentUser })
                         }),
                         catchError(() =>
                             of(getCurrentUserFailureAction())
-                        )))))
+                        ))
+            })))
 
     constructor(
         private actions$: Actions,

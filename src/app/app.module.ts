@@ -10,6 +10,9 @@ import { AuthModule } from './auth/auth.module';
 import { AuthService } from './auth/services/auth.service';
 import { EffectsModule } from '@ngrx/effects';
 import { HeaderComponent } from './shared/components/header/header.component';
+import { AuthInterceptor } from './shared/interceptions/auth.interceptor';
+import { LocalStoreService } from './shared/services/local-store.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,14 @@ import { HeaderComponent } from './shared/components/header/header.component';
     AuthModule,
     EffectsModule.forRoot([])
   ],
-  providers: [AuthService],
+  providers:
+    [AuthService, AuthInterceptor, LocalStoreService,
+      {
+        provide: HTTP_INTERCEPTORS,
+        useClass: AuthInterceptor,
+        multi: true
+      }
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
