@@ -13,6 +13,7 @@ import { LocalStoreService } from '../shared/services/local-store.service';
 import { LoginComponent } from './components/login/login.component';
 import { LoginEffect } from './store/effects/login.effect';
 import { GetCurrentUserEffect } from './store/effects/get-current-user.effect';
+import { LogoutEffect } from './store/effects/logout.effect';
 
 const routes: Routes = [
   { path: "register", component: RegisterComponent },
@@ -28,7 +29,7 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     StoreModule.forFeature('auth', reducers),
-    EffectsModule.forFeature([RegisterEffect, LoginEffect, GetCurrentUserEffect]),
+    EffectsModule.forFeature([RegisterEffect, LoginEffect, GetCurrentUserEffect, LogoutEffect]),
     HttpClientModule,
     ReactiveFormsModule
   ],

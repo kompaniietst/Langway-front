@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { logoutAction } from 'src/app/auth/store/actions/logout.action';
 import { currentUserSelector } from 'src/app/auth/store/selectors';
 import { CurrentUserInterface } from '../../types/current-user.interface';
 
@@ -18,4 +19,7 @@ export class HeaderComponent implements OnInit {
     this.currentUser$ = this.store.select(currentUserSelector);
   }
 
+  logout() {
+    this.store.dispatch(logoutAction());
+  }
 }

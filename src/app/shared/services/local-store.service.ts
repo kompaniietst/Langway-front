@@ -24,7 +24,7 @@ export class LocalStoreService {
     }
   }
 
-  remove() {alert();
+  remove() {
     localStorage.clear();
   }
 }
