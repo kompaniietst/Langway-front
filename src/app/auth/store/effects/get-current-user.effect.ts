@@ -13,8 +13,6 @@ export class GetCurrentUserEffect {
             ofType(getCurrentUserAction),
             switchMap(() => {
                 const token = this.localstore.get("token");
-                console.log(token);
-                
 
                 if (!token)
                     return of(getCurrentUserFailureAction());

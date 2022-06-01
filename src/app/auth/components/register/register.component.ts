@@ -21,10 +21,6 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm();
-    console.log('e');
-
-    this.store.select(errorSelector).subscribe(e => console.log('EEE', e));
-
     this.isSubmitting$ = this.store.select(isSubmittingSelector);
     this.error$ = this.store.select(errorSelector);
   }

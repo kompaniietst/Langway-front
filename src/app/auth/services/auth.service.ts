@@ -14,19 +14,14 @@ export class AuthService {
     constructor(private http: HttpClient) { }
 
     register(data: RegisterRequestInterface): Observable<CurrentUserInterface> {
-        console.log('regiter data', data);
-
         return this.http.post<AuthResponceInterface>(this.url + 'register', data);
     }
 
     login(data: LoginRequestInterface): Observable<CurrentUserInterface> {
-        console.log('login data', data);
-
         return this.http.post<AuthResponceInterface>(this.url + 'login', data);
     }
 
     getCurrentUser(): Observable<CurrentUserInterface> {
-
         return this.http.get<AuthResponceInterface>(this.url + 'current-user');
     }
 }

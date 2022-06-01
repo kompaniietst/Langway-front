@@ -20,10 +20,6 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm();
-    console.log('e');
-
-    this.store.select(errorSelector).subscribe(e => console.log('EEE', e));
-
     this.isSubmitting$ = this.store.select(isSubmittingSelector);
     this.error$ = this.store.select(errorSelector);
   }
@@ -36,8 +32,6 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log(this.form.value);
-
     this.store.dispatch(
       loginAction({ request: this.form.value }));
   }

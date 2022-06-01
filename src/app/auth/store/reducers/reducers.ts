@@ -22,8 +22,9 @@ const authReducer = createReducer(
             error: null
         })),
     on(registerSuccessAction,
-        (state: AuthStateInterface) => ({
+        (state: AuthStateInterface, action) => ({
             ...state,
+            currentUser: action.currentUser,
             error: null
         })),
     on(registerFailureAction,

@@ -19,7 +19,6 @@ export class LocalStoreService {
       return data;
     }
     catch (err) {
-      console.log('err', err);
       return null;
     }
   }
