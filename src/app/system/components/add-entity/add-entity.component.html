@@ -1,0 +1,14 @@
+<h1>Add a new entity!</h1>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div>
+        <input type="text" placeholder="name" formControlName="name">
+    </div>
+    <div>
+        <input type="radio" name="type" value="folder" formControlName="type">
+        <label>Folder</label>
+        <input type="radio" name="type" value="file" formControlName="type">
+        <label>File</label>
+    </div>
+    <div class="error">{{ error$ | async }}</div>
+    <button type="submit">Submit</button>
+</form>

@@ -13,6 +13,7 @@ import { HeaderComponent } from './shared/components/header/header.component';
 import { AuthInterceptor } from './shared/interceptions/auth.interceptor';
 import { LocalStoreService } from './shared/services/local-store.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { EntityModule } from './system/entity.module';
 
 @NgModule({
   declarations: [
@@ -28,8 +29,9 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
       logOnly: environment.production, // Restrict extension to log-only mode
       autoPause: true, // Pauses recording actions and state changes when the extension window is not open
     }),
+    EffectsModule.forRoot([]),
     AuthModule,
-    EffectsModule.forRoot([])
+    EntityModule
   ],
   providers:
     [AuthService, AuthInterceptor, LocalStoreService,
