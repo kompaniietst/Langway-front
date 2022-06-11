@@ -9,11 +9,11 @@ export const createEntityAction = createAction(
 );
 
 export const createEntitySuccessAction = createAction(
-    '[Auth] Create success',
+    '[Entity] Create success',
     props<{ entity: EntityInterface }>()
 );
 
 export const createEntityFailureAction = createAction(
-    '[Auth] Create fail',
+    '[Entity] Create fail',
     props<{ error: ErrorInterface }>()
 );

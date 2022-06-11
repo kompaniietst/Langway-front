@@ -1,1 +1,4 @@
-<p>entity-tree works!</p>
+<div *ngFor="let item of ($entities | async)">
+    <div><strong>{{item.name}}</strong> {{item.type}}</div>
+    <hr>
+</div>

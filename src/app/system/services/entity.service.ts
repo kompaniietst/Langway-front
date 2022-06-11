@@ -11,6 +11,10 @@ export class EntityService {
 
     constructor(private http: HttpClient) { }
 
+    getEntities(): Observable<EntityInterface[]> {
+        return this.http.get<EntityInterface[]>(this.url + 'entities');
+    }
+
     create(data: EntityRequestInterface): Observable<EntityInterface> {
         return this.http.post<EntityInterface>(this.url + 'create-entity', data);
     }

@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { reducers } from './store/reducers/reducers';
+import { reducer as entityReducer } from './store/reducers/entity-reducer';
+import { reducer as entitiesReduser } from './store/reducers/entities-reducer';
 import { EntityEffect } from './store/effects/entity.effect';
 import { AddEntityComponent } from './components/add-entity/add-entity.component';
 import { SingleEntityComponent } from './components/single-entity/single-entity.component';
@@ -11,6 +12,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { EntityService } from './services/entity.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ContainerComponent } from './components/container/container.component';
+import { EntitiesEffect } from './store/effects/entities.effect';
 
 const routes: Routes = [
   { path: "entities", component: ContainerComponent },
@@ -26,8 +28,9 @@ const routes: Routes = [
   ],
   imports: [
     CommonModule,
-    StoreModule.forFeature('entity', reducers),
-    EffectsModule.forFeature([EntityEffect]),
+    StoreModule.forFeature('entity', entityReducer),
+    StoreModule.forFeature('entities', entitiesReduser),
+    EffectsModule.forFeature([EntityEffect, EntitiesEffect]),
     RouterModule.forChild(routes),
     ReactiveFormsModule
   ],

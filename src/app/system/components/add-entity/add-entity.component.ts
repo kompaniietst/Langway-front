@@ -4,6 +4,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { createEntityAction } from '../../store/actions/create-entity.actions';
+import { getEntitiesAction } from '../../store/actions/get-entities.actions';
 import { errorSelector } from '../../store/selectors';
 
 @Component({
@@ -36,6 +37,7 @@ export class AddEntityComponent implements OnInit {
     
     this.store.dispatch(
       createEntityAction({ request: this.form.value }));
+      this.store.dispatch(getEntitiesAction());
   }
 }
 
