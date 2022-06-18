@@ -26,7 +26,7 @@ export class LoginEffect {
                     )
             ),
             ofType(loginSuccessAction),
-            tap(() => this.router.navigateByUrl('/'))))
+            tap(() => this.router.navigateByUrl('/entities'))))
 
     constructor(
         private actions$: Actions,

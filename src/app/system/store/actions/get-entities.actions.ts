@@ -8,7 +8,7 @@ export const getEntitiesAction = createAction(
 
 export const getEntitiesSuccessAction = createAction(
     '[Entities] Get success',
-    props<{ entities: EntityInterface[] }>()
+    props<{ entities: EntityInterface }>()
 );
 
 export const getEntitiesFailureAction = createAction(

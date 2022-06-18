@@ -1,10 +1,9 @@
-import { UserInterface } from "src/app/shared/types/user.interface";
-import { EntityTypeInterface } from "./entity-type.interface";
-
 export interface EntityInterface {
     id: string;
-    type: EntityTypeInterface;
     name: string;
+    type: string;
+    path: string[];
     createdAt: string;
-    author: UserInterface;
+    author: '';
+    children?: EntityInterface[];
 }

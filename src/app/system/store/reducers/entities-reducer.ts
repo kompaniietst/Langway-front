@@ -4,7 +4,7 @@ import { getEntitiesAction, getEntitiesFailureAction, getEntitiesSuccessAction }
 
 const initialState: TreeStateInterface = {
     isSubmitting: null,
-    entities: [],
+    entities: null,
     error: null,
 }
 
@@ -14,7 +14,7 @@ const entitiesReducer = createReducer(
         (state: TreeStateInterface) => ({
             ...state,
             isSubmitting: true,
-            entities: [],
+            entities: null,
             error: null
         })),
     on(getEntitiesSuccessAction,
@@ -28,7 +28,7 @@ const entitiesReducer = createReducer(
         (state: TreeStateInterface, action) => ({
             ...state,
             isSubmitting: true,
-            entities: [],
+            entities: null,
             error: action.error
         })),
 );

@@ -11,12 +11,11 @@ import { EntityInterface } from '../../types/entity.interface';
   styleUrls: ['./entity-tree.component.scss']
 })
 export class EntityTreeComponent implements OnInit {
-  $entities!: Observable<EntityInterface[]>;
+  entities$!: Observable<EntityInterface | null>;
   constructor(private store: Store) { }
 
   ngOnInit(): void {
     this.store.dispatch(getEntitiesAction());
-    this.$entities = this.store.select(entitiesSelector);
+    this.entities$ = this.store.select(entitiesSelector)!;
   }
-
 }

@@ -6,18 +6,17 @@ import { catchError, map, of, switchMap, tap } from "rxjs";
 import { LocalStoreService } from "src/app/shared/services/local-store.service";
 import { EntityService } from "../../services/entity.service";
 import { EntityInterface } from "../../types/entity.interface";
-import { createEntityAction, createEntityFailureAction, createEntitySuccessAction } from "../actions/create-entity.actions";
 import { getEntitiesAction, getEntitiesFailureAction, getEntitiesSuccessAction } from "../actions/get-entities.actions";
 
 @Injectable()
 export class EntitiesEffect {
-    register$ = createEffect(() =>
+    getEntities$ = createEffect(() =>
         this.actions$.pipe(
             ofType(getEntitiesAction),
             switchMap(() =>
                 this.entityService
                     .getEntities().pipe(
-                        map((entities: EntityInterface[]) => {
+                        map((entities: EntityInterface) => {
                             return getEntitiesSuccessAction({ entities })
                         }),
                         catchError((errResp: HttpErrorResponse) =>

@@ -3,6 +3,6 @@ import { EntityInterface } from "./entity.interface";
 
 export interface TreeStateInterface {
     isSubmitting: boolean | null;
-    entities: EntityInterface[];
+    entities: EntityInterface | null;
     error: ErrorInterface | null;
 }

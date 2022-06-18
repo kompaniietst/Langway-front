@@ -13,6 +13,7 @@ import { EntityService } from './services/entity.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ContainerComponent } from './components/container/container.component';
 import { EntitiesEffect } from './store/effects/entities.effect';
+import { EntityComponent } from './components/entity-tree/entity/entity.component';
 
 const routes: Routes = [
   { path: "entities", component: ContainerComponent },
@@ -25,6 +26,7 @@ const routes: Routes = [
     EntityTreeComponent,
     SingleEntityComponent,
     AddEntityComponent,
+    EntityComponent,
   ],
   imports: [
     CommonModule,

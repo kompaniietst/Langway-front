@@ -1,4 +1,4 @@
-<div *ngFor="let item of ($entities | async)">
-    <div><strong>{{item.name}}</strong> {{item.type}}</div>
+<div *ngIf="((entities$ | async)?.children)">
+    <app-entity [children]="(entities$ | async)?.children"></app-entity>
     <hr>
 </div>

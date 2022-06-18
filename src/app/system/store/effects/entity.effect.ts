@@ -10,7 +10,7 @@ import { createEntityAction, createEntityFailureAction, createEntitySuccessActio
 
 @Injectable()
 export class EntityEffect {
-    register$ = createEffect(() =>
+    createEntity$ = createEffect(() =>
         this.actions$.pipe(
             ofType(createEntityAction),
             switchMap(({ request }) =>
