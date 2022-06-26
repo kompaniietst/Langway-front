@@ -1,6 +1,9 @@
-.wow {
-    padding-left: 50px;
-    line-height: 30px;
+:host {
+    display: flex;
+    justify-content: space-between;
+}
+.entity {
+    display: flex;
 }
 span,
 svg {

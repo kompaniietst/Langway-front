@@ -9,6 +9,7 @@ import { EntityInterface } from "../types/entity.interface";
 export class EntityService {
     url: string = environment.api;
     entityPathSubject = new Subject<string[]>();
+    openedDirectories = new Subject<string[]>();
 
     constructor(private http: HttpClient) { }
 

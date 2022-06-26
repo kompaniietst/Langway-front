@@ -6,17 +6,20 @@ import { reducer as entityReducer } from './store/reducers/entity-reducer';
 import { reducer as entitiesReduser } from './store/reducers/entities-reducer';
 import { EntityEffect } from './store/effects/entity.effect';
 import { AddEntityComponent } from './components/add-entity/add-entity.component';
-import { SingleEntityComponent } from './components/single-entity/single-entity.component';
 import { EntityTreeComponent } from './components/entity-tree/entity-tree.component';
 import { RouterModule, Routes } from '@angular/router';
 import { EntityService } from './services/entity.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ContainerComponent } from './components/container/container.component';
 import { EntitiesEffect } from './store/effects/entities.effect';
-import { EntityComponent } from './components/entity-tree/entity/entity.component';
+import { UIModule } from '../ui/ui.module';
+import { ListComponent } from './components/list/list.component';
+import { EntitiesComponent } from './components/entities/entities.component';
+import { EntityComponent } from './components/entity/entity.component';
 
 const routes: Routes = [
   { path: "entities", component: ContainerComponent },
+  { path: "entities/list/:id", component: ListComponent },
   { path: "add-entity", component: AddEntityComponent },
 ]
 
@@ -24,8 +27,9 @@ const routes: Routes = [
   declarations: [
     ContainerComponent,
     EntityTreeComponent,
-    SingleEntityComponent,
     AddEntityComponent,
+    EntitiesComponent,
+    ListComponent,
     EntityComponent,
   ],
   imports: [
@@ -34,7 +38,8 @@ const routes: Routes = [
     StoreModule.forFeature('entities', entitiesReduser),
     EffectsModule.forFeature([EntityEffect, EntitiesEffect]),
     RouterModule.forChild(routes),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    UIModule
   ],
   providers: [
     EntityService

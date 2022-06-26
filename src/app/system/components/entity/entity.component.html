@@ -1,0 +1,11 @@
+<div class="entity">
+    <svg-list *ngIf="isEntity('file')"></svg-list>
+    <svg-folder *ngIf="isEntity('closed')"></svg-folder>
+    <svg-empty-folder *ngIf="isEntity('empty')"></svg-empty-folder>
+    <svg-opened-folder *ngIf="isEntity('opened-not-empty')"></svg-opened-folder>
+    <svg-empty-opened-folder *ngIf="isEntity('empty-opened')"></svg-empty-opened-folder>
+
+    <b>{{entity.name}}</b>
+</div>
+
+<div class="actions">actions</div>

@@ -1,0 +1,11 @@
+<div *ngFor="let item of children" class="entity">
+    <app-entity 
+        [entity]="item" 
+        [openedDirectories]="openedDirectories" 
+        (click)="activateItem(item)">
+    </app-entity>
+    <app-entities 
+        *ngIf="item?.children?.length > 0 && openedDirectories.includes(item.id)" 
+        [children]="item.children">
+    </app-entities>
+</div>
