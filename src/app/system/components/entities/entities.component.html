@@ -1,9 +1,12 @@
-<div *ngFor="let item of children" class="entity">
-    <app-entity 
-        [entity]="item" 
-        [openedDirectories]="openedDirectories" 
-        (click)="activateItem(item)">
-    </app-entity>
+<div *ngFor="let item of children" class="entity-container">
+    <div class="entity">
+        <app-entity 
+            [entity]="item" 
+            [openedDirectories]="openedDirectories" 
+            (click)="activateItem(item)">
+        </app-entity>
+        <app-item-toolbar [itemId]="item.id" (onRemove)="onRemove(item.id)" (onEdit)="onEdit(item.id)"></app-item-toolbar>
+    </div>
     <app-entities 
         *ngIf="item?.children?.length > 0 && openedDirectories.includes(item.id)" 
         [children]="item.children">

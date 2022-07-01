@@ -1,6 +1,7 @@
 import { Action, createReducer, on } from "@ngrx/store";
 import { SystemStateInterface } from "../../types/system-state.interface";
 import { createEntityAction, createEntityFailureAction } from "../actions/create-entity.actions";
+import { removeEntityAction, removeEntityFailureAction } from "../actions/remove-entity.actions";
 
 const initialState: SystemStateInterface = {
     isSubmitting: null,
@@ -8,7 +9,7 @@ const initialState: SystemStateInterface = {
     error: null,
 }
 
-const entityReducer = createReducer(
+const createEntityReducer = createReducer(
     initialState,
     on(createEntityAction,
         (state: SystemStateInterface) => ({
@@ -24,8 +25,13 @@ const entityReducer = createReducer(
             currentEntity: null,
             error: action.error
         })),
-);
+
+    on(removeEntityAction,
+        (state: SystemStateInterface) => ({
+            ...state,
+        }),
+    ))
 
 export function reducer(state: SystemStateInterface, action: Action) {
-    return entityReducer(state, action);
+    return createEntityReducer(state, action);
 }

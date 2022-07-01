@@ -1,4 +1,8 @@
-.entity {
+.entity-container {
     padding-left: 50px;
     line-height: 30px;
+}
+.entity {
+    display: flex;
+    justify-content: space-between;
 }

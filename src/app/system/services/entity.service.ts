@@ -20,4 +20,8 @@ export class EntityService {
     create(data: EntityRequestInterface): Observable<EntityInterface> {
         return this.http.post<EntityInterface>(this.url + 'create-entity', data);
     }
+
+    remove(id: string): any {
+        return this.http.delete(this.url + 'remove');
+    }
 }

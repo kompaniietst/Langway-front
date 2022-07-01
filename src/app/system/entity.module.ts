@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { reducer as entityReducer } from './store/reducers/entity-reducer';
+import { reducer as removeEntityReducer } from './store/reducers/remove-entity-reducer';
+import { reducer as createEntityReducer } from './store/reducers/create-entity-reducer';
 import { reducer as entitiesReduser } from './store/reducers/entities-reducer';
 import { EntityEffect } from './store/effects/entity.effect';
 import { AddEntityComponent } from './components/add-entity/add-entity.component';
@@ -16,6 +17,7 @@ import { UIModule } from '../ui/ui.module';
 import { ListComponent } from './components/list/list.component';
 import { EntitiesComponent } from './components/entities/entities.component';
 import { EntityComponent } from './components/entity/entity.component';
+import { SharedModule } from '../shared/components/shared.module';
 
 const routes: Routes = [
   { path: "entities", component: ContainerComponent },
@@ -34,11 +36,13 @@ const routes: Routes = [
   ],
   imports: [
     CommonModule,
-    StoreModule.forFeature('entity', entityReducer),
+    StoreModule.forFeature('remove entity', removeEntityReducer),
+    StoreModule.forFeature('create entity', createEntityReducer),
     StoreModule.forFeature('entities', entitiesReduser),
     EffectsModule.forFeature([EntityEffect, EntitiesEffect]),
     RouterModule.forChild(routes),
     ReactiveFormsModule,
+    SharedModule,
     UIModule
   ],
   providers: [
