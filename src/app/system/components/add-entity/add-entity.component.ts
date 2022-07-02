@@ -22,8 +22,8 @@ export class AddEntityComponent implements OnInit {
   constructor(private store: Store, private entityService: EntityService) {
 
     this.entityService.entityPathSubject
-      .subscribe((x: string[]) => {
-        this.path = x;
+      .subscribe((path: string[]) => {
+        this.path = path
       });
   }
 
@@ -45,7 +45,8 @@ export class AddEntityComponent implements OnInit {
 
     this.store.dispatch(
       createEntityAction({ request: request }));
-    this.store.dispatch(getEntitiesAction());
+
+    this.initForm();
   }
 }
 

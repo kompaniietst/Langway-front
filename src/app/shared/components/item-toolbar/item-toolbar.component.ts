@@ -12,7 +12,7 @@ export class ItemToolbarComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.itemId);
+    // console.log(this.itemId);
 
   }
 

@@ -1,3 +1,4 @@
+<div (click)="remove()">Clear DB</div>
 <div *ngIf="((entities$ | async)?.children)">
     <app-entities [children]="(entities$ | async)?.children"></app-entities>
     <hr>

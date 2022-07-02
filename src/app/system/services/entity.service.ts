@@ -24,4 +24,8 @@ export class EntityService {
     remove(id: string): any {
         return this.http.delete(this.url + 'remove');
     }
+
+    clearDB(){
+        return this.http.delete(this.url + 'clearDB');
+    }
 }
