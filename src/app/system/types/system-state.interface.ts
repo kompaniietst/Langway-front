@@ -5,4 +5,5 @@ export interface SystemStateInterface {
     isSubmitting: boolean | null;
     currentEntity: EntityInterface | null;
     error: ErrorInterface | null;
+    entities?: SystemStateInterface | null
 }

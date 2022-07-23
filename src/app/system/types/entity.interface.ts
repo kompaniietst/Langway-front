@@ -4,6 +4,6 @@ export interface EntityInterface {
     type: string;
     path: string[];
     createdAt: string;
-    author: '';
+    author: string;
     children?: EntityInterface[];
 }
