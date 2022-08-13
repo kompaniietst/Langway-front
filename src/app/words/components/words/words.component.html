@@ -1,0 +1,7 @@
+<hr>
+
+<h1>Words</h1>
+
+<div *ngFor="let item of (words$ | async)">
+    {{item.word}} | {{item.translate}} | {{item.transcription}}
+</div>

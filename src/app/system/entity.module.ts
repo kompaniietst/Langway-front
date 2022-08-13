@@ -18,6 +18,7 @@ import { ListComponent } from './components/list/list.component';
 import { EntitiesComponent } from './components/entities/entities.component';
 import { EntityComponent } from './components/entity/entity.component';
 import { SharedModule } from '../shared/components/shared.module';
+import { ContainerModule } from '../words/components/container/container.module';
 
 const routes: Routes = [
   { path: "entities", component: ContainerComponent },
@@ -43,7 +44,8 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     ReactiveFormsModule,
     SharedModule,
-    UIModule
+    UIModule,
+    ContainerModule
   ],
   providers: [
     EntityService
