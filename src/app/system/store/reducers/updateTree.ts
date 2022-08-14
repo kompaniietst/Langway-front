@@ -4,7 +4,8 @@ export function addNewEntity(entity: any, entities: any) {
 
     if (entities.children.length === 0) {
         let node: any = convertToNode(entity);
-        [...entities.children, ...node];
+        entities.children = [...entities.children, node];
+        return entities;
     }
     else {
         return addEntity(entity, entities);
