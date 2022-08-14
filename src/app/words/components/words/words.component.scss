@@ -1,0 +1,8 @@
+.word {
+    display: flex;
+    border-bottom: 1px solid lightgrey;
+    padding: 15px 0;
+    > div {
+        margin-right: 20px;
+    }
+}

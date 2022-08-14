@@ -1,17 +1,20 @@
-<a routerLink="/login">Have an account?</a>
-<form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <div>
-        <input type="text" placeholder="name" formControlName="fname">
-    </div>
-    <div>
-        <input type="text" placeholder="last name" formControlName="lname">
-    </div>
-    <div>
-        <input type="text" placeholder="email" formControlName="email">
-    </div>
-    <div>
-        <input type="text" placeholder="password" formControlName="password">
-    </div>
-    <div class="error">{{ error$ | async }}</div>
-    <button type="submit">Submit</button>
-</form>
+<div class="container">
+    <h1>Registration</h1>
+    <a routerLink="/login">Have an account?</a>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div>
+            <input type="text" placeholder="Name" formControlName="fname">
+        </div>
+        <div>
+            <input type="text" placeholder="Last name" formControlName="lname">
+        </div>
+        <div>
+            <input type="text" placeholder="Email" formControlName="email">
+        </div>
+        <div>
+            <input type="text" placeholder="Password" formControlName="password">
+        </div>
+        <div class="error">{{ error$ | async }}</div>
+        <button type="submit">Sign up</button>
+    </form>
+</div>
