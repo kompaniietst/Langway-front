@@ -14,3 +14,9 @@ form {
 h3 {
     margin: 5px 0;
 }
+
+:host {
+    position: absolute;
+    right: 0;
+    top: 0;
+}

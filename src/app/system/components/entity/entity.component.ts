@@ -19,7 +19,7 @@ export class EntityComponent implements OnInit {
       return this.openedDirectories.includes(this.entity.id) && this.entity.children && this.entity.type === 'folder';
 
     if (state === 'empty')
-      return !this.openedDirectories.includes(this.entity.id) && !this.entity.children && this.entity.type === 'folder';
+      return this.entity.path?.length === 0 && this.entity.type === 'folder';
 
     if (state === 'empty-opened')
       return this.openedDirectories.includes(this.entity.id) && !this.entity.children && this.entity.type === 'folder';

@@ -11,4 +11,3 @@ export const errorSelector = createSelector
 
 export const currentUserSelector = createSelector
     (authFeatureSelector, (authState: AuthStateInterface) => authState.currentUser);
-

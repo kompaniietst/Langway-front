@@ -8,7 +8,7 @@ export const isSubmittingSelector = createSelector
     (entityFeatureSelector, (entityState: SystemStateInterface) => entityState.isSubmitting);
 
 export const errorSelector = createSelector
-    (entityFeatureSelector, (entityState: SystemStateInterface) => entityState.error);
+    (entityFeatureSelector, (entityState: SystemStateInterface) => entityState?.error);
 
 export const currentEntitySelector = createSelector
     (entityFeatureSelector, (entityState: SystemStateInterface) => entityState.currentEntity);

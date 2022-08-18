@@ -38,7 +38,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     StoreModule.forFeature('remove entity', removeEntityReducer),
-    StoreModule.forFeature('create entity', createEntityReducer),
+    StoreModule.forFeature('entity', createEntityReducer),
     StoreModule.forFeature('entities', entitiesReduser),
     EffectsModule.forFeature([EntityEffect, EntitiesEffect]),
     RouterModule.forChild(routes),
