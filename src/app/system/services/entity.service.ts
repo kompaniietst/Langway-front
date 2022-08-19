@@ -4,6 +4,7 @@ import { Observable, of, Subject } from "rxjs";
 import { environment } from "src/environments/environment";
 import { EntityRequestInterface } from "../types/entity-request.interface";
 import { EntityInterface } from "../types/entity.interface";
+import { TreeInterface } from "../types/tree.interface";
 
 @Injectable()
 export class EntityService {
@@ -13,8 +14,8 @@ export class EntityService {
 
     constructor(private http: HttpClient) { }
 
-    getEntities(): Observable<EntityInterface> {
-        return this.http.get<EntityInterface>(this.url + 'entities');
+    getEntities(): Observable<TreeInterface> {
+        return this.http.get<TreeInterface>(this.url + 'entities');
     }
 
     create(data: EntityRequestInterface): Observable<EntityInterface> {

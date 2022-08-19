@@ -5,6 +5,7 @@ import { EntityService } from '../../services/entity.service';
 import { getEntitiesAction } from '../../store/actions/get-entities.actions';
 import { entitiesSelector } from '../../store/selectors';
 import { EntityInterface } from '../../types/entity.interface';
+import { TreeInterface } from '../../types/tree.interface';
 
 @Component({
   selector: 'app-entity-tree',
@@ -12,7 +13,7 @@ import { EntityInterface } from '../../types/entity.interface';
   styleUrls: ['./entity-tree.component.scss']
 })
 export class EntityTreeComponent implements OnInit {
-  entities$!: Observable<EntityInterface | null>;
+  entities$!: Observable<TreeInterface | null>;
   constructor(private store: Store, private entityService: EntityService) { }
 
   ngOnInit(): void {

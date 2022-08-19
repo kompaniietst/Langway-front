@@ -1,6 +1,7 @@
 import { createAction, props } from "@ngrx/store";
 import { ErrorInterface } from "src/app/shared/types/error.interface";
 import { EntityInterface } from "../../types/entity.interface";
+import { TreeInterface } from "../../types/tree.interface";
 
 export const getEntitiesAction = createAction(
     '[Entities] Get',
@@ -8,7 +9,7 @@ export const getEntitiesAction = createAction(
 
 export const getEntitiesSuccessAction = createAction(
     '[Entities] Get success',
-    props<{ entities: EntityInterface }>()
+    props<{ entities: TreeInterface }>()
 );
 
 export const getEntitiesFailureAction = createAction(

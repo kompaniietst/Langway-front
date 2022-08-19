@@ -1,30 +1,26 @@
-export function addNewEntity(entity: any, entities: any) {
-    if (!entities.hasOwnProperty("children"))
-        entities = { ...entities, children: [] }
+export function addEntity(entity: any, entities: any) {
+    console.log('e', entities);
+    
+    
+    let isEmptyTree = entities?.children?.length === 0;
 
-    if (entities.children.length === 0) {
-        let node: any = convertToNode(entity);
-        entities.children = [...entities.children, node];
-        return entities;
-    }
-    else {
-        return addEntity(entity, entities);
-    }
-
-    return entities;
-}
-
-
-function addEntity(entity: any, currNode: any) {
     let node: any = convertToNode(entity);
 
-    if (entity.path.length == 0) {
-        return { ...currNode, children: [...currNode.children, node] }
-    }
+    if (!isEmptyTree) {
+        entities = { ...entities, children: [] }
 
-    recurs(entity, 0, currNode.children);
-    return currNode;
+        return { ...entities, children: [...entities?.children, node] || [] };
+    }
+    else {
+        if (entity.path.length == 0) {
+            return { ...entities, children: [...entities.children, node] }
+        }
+
+        recurs(entity, 0, entities.children);
+        return entities;
+    }
 }
+
 
 function recurs(entity: any, i: any, children: any) {
     children.forEach((child: any) => {

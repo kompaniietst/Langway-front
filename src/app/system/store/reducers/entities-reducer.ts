@@ -1,10 +1,8 @@
 import { Action, createReducer, on } from "@ngrx/store";
-import { EntityInterface } from "../../types/entity.interface";
-import { SystemStateInterface } from "../../types/system-state.interface";
 import { TreeStateInterface } from "../../types/tree-state.interface";
 import { createEntitySuccessAction } from "../actions/create-entity.actions";
 import { getEntitiesAction, getEntitiesFailureAction, getEntitiesSuccessAction } from "../actions/get-entities.actions";
-import { addNewEntity } from "./updateTree";
+import { addEntity } from "./updateTree";
 
 const initialState: TreeStateInterface = {
     isSubmitting: null,
@@ -42,7 +40,7 @@ const entitiesReducer = createReducer(
                 ...state,
                 isSubmitting: true,
                 currentEntity: action.entity,
-                entities: addNewEntity(action.entity, state.entities),
+                entities: addEntity(action.entity, state.entities),
                 error: null
             }
         }),
