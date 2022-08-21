@@ -1,6 +1,5 @@
 import { ErrorInterface } from "src/app/shared/types/error.interface";
-import { EntityInterface } from "./entity.interface";
-import { TreeInterface } from "./tree.interface";
+import { TreeInterface } from "../tree/tree.interface";
 
 export interface TreeStateInterface {
     isSubmitting: boolean | null;

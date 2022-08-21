@@ -5,8 +5,7 @@ import { createEffect, Actions, ofType } from "@ngrx/effects";
 import { catchError, map, of, switchMap, tap } from "rxjs";
 import { LocalStoreService } from "src/app/shared/services/local-store.service";
 import { EntityService } from "../../services/entity.service";
-import { EntityInterface } from "../../types/entity.interface";
-import { TreeInterface } from "../../types/tree.interface";
+import { TreeInterface } from "../../tree/tree.interface";
 import { getEntitiesAction, getEntitiesFailureAction, getEntitiesSuccessAction } from "../actions/get-entities.actions";
 
 @Injectable()

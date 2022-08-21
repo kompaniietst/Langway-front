@@ -4,8 +4,7 @@ import { Observable } from 'rxjs';
 import { EntityService } from '../../services/entity.service';
 import { getEntitiesAction } from '../../store/actions/get-entities.actions';
 import { entitiesSelector } from '../../store/selectors';
-import { EntityInterface } from '../../types/entity.interface';
-import { TreeInterface } from '../../types/tree.interface';
+import { TreeInterface } from '../../tree/tree.interface';
 
 @Component({
   selector: 'app-entity-tree',
@@ -23,5 +22,6 @@ export class EntityTreeComponent implements OnInit {
 
   remove() {
     this.entityService.clearDB().subscribe();
+    this.entities$ = this.store.select(entitiesSelector)!;
   }
 }

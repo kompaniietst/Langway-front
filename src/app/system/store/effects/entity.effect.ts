@@ -33,8 +33,6 @@ export class EntityEffect {
                 ofType(createEntityAction),
                 withLatestFrom(this.store.select(entitiesSelector)),
                 switchMap(([action, entities]) => {
-                    console.log('E', action, entities);
-
                     return of();
                 })
             ),

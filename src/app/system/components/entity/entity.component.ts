@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { EntityInterface } from 'src/app/system/types/entity.interface';
+import { NodeInterface } from '../../tree/node.interface';
 
 @Component({
   selector: 'app-entity',
@@ -7,7 +7,7 @@ import { EntityInterface } from 'src/app/system/types/entity.interface';
   styleUrls: ['./entity.component.scss']
 })
 export class EntityComponent implements OnInit {
-  @Input() entity!: EntityInterface;
+  @Input() entity!: NodeInterface;
   @Input() openedDirectories!: string[];
   constructor() { }
 

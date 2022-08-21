@@ -1,10 +1,10 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Observable, of, Subject } from "rxjs";
+import { map, Observable, of, Subject } from "rxjs";
 import { environment } from "src/environments/environment";
+import { TreeInterface } from "../tree/tree.interface";
 import { EntityRequestInterface } from "../types/entity-request.interface";
 import { EntityInterface } from "../types/entity.interface";
-import { TreeInterface } from "../types/tree.interface";
 
 @Injectable()
 export class EntityService {
@@ -19,14 +19,15 @@ export class EntityService {
     }
 
     create(data: EntityRequestInterface): Observable<EntityInterface> {
-        return this.http.post<EntityInterface>(this.url + 'create-entity', data);
+        return this.http.post<EntityInterface>(this.url + 'create-entity', data)
+            .pipe(map((x: any) => ({ ...x, id: x._id })));
     }
 
     remove(id: string): any {
         return this.http.delete(this.url + 'remove');
     }
 
-    clearDB(){
+    clearDB() {
         return this.http.delete(this.url + 'clearDB');
     }
 }

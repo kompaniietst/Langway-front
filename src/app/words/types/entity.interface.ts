@@ -5,5 +5,4 @@ export interface EntityInterface {
     path: string[];
     createdAt: string;
     author: string;
-    children?: EntityInterface[];
 }
