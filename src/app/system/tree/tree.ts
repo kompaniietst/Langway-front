@@ -6,14 +6,12 @@ export class Tree extends Node implements TreeInterface {
     insert(node: NodeInterface) {
         let tree = this;
 
-        if (tree.isEmpty() || node.path.length === 0) {
-            tree.children = [...tree.children, node];
+        if (node.path.length === 0) {
+            tree.children.push(node);
             return tree;
         }
 
-        this.appendToChildren(tree, node, 0)
-
-        return tree;
+        return this.appendToChildren(tree, node, 0);
     }
 
     appendToChildren(tree: TreeInterface, node: NodeInterface, i: number) {
@@ -27,6 +25,4 @@ export class Tree extends Node implements TreeInterface {
 
         return tree;
     }
-
-    isEmpty = () => this.children.length === 0;
 }

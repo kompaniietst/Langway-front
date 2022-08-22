@@ -16,6 +16,6 @@ export class Node implements NodeInterface {
         this.path = path;
         this.createdAt = createdAt;
         this.author = author;
-        this.children = children;
+        this.children = children || [];
     }
 }
