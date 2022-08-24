@@ -20,6 +20,14 @@ const createEntityReducer = createReducer(
             error: null
         })),
 
+    on(createEntitySuccessAction,
+        (state: SystemStateInterface, action) => ({
+            ...state,
+            isSubmitting: true,
+            currentEntity: action.entity,
+            error: null
+        })),
+
     on(createEntityFailureAction,
         (state: SystemStateInterface, action) => ({
             ...state,

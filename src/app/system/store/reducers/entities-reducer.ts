@@ -42,7 +42,6 @@ const entitiesReducer = createReducer(
             return {
                 ...state,
                 isSubmitting: true,
-                currentEntity: action.entity,
                 entities: tree.insert(node),
                 error: null
             }

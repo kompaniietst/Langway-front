@@ -4,6 +4,7 @@ import { Store } from '@ngrx/store';
 import { EntityService } from 'src/app/system/services/entity.service';
 import { EntityInterface } from 'src/app/system/types/entity.interface';
 import { removeEntityAction } from '../../store/actions/remove-entity.actions';
+import { currentEntitySelector } from '../../store/selectors';
 
 @Component({
   selector: 'app-entities',
@@ -12,11 +13,27 @@ import { removeEntityAction } from '../../store/actions/remove-entity.actions';
 })
 export class EntitiesComponent implements OnInit {
   @Input() children: any;
+  // Todo: make Behavior subj, move logic to the service
   openedDirectories: string[] = [];
 
   constructor(private entityService: EntityService, private router: Router, private store: Store) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    console.log('children', this.children);
+
+    this.children.forEach((child: EntityInterface) => {
+      this.openedDirectories.push(child.id);
+    });
+
+    // Todo: make Behavior subj, move logic to the service
+    this.store.select(currentEntitySelector)
+      .subscribe((x: any) => {
+        if (!this.openedDirectories.includes(x?.id)) {
+          this.openedDirectories.push(x?.id);
+          return;
+        }
+      });
+  }
 
   activateItem(item: EntityInterface) {
     if (item.type === 'file')
