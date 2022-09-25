@@ -1,8 +1,9 @@
 .entity-container {
-    padding-left: 50px;
+    padding: 7px 0 8px 50px;
     line-height: 30px;
 }
 .entity {
     display: flex;
     justify-content: space-between;
+    width: 100%;
 }

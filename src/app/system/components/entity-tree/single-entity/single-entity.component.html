@@ -1,0 +1,16 @@
+<!-- <p>single-entity works!</p> -->
+
+
+                <!-- TODO: make 1 component -->
+                <!-- {{entity.id}} _ {{id}} -->
+                <svg-list *ngIf="state.isFile"></svg-list>
+          
+                <!-- <svg-folder *ngIf="!state.opened && !state.empty"></svg-folder> -->
+                <!-- <svg-opened-folder *ngIf="state.isFolder && state.opened && !state.empty"></svg-opened-folder> -->
+                <!-- <svg-opened-folder *ngIf="checkState(node, 'opened') && node?.id === id"></svg-opened-folder> -->
+                <svg-folder *ngIf="state.isFolder"></svg-folder>
+
+            <!-- {{ state.isFolder}} && {{state.empty}} && {{state.opened}} -->
+                <!-- <svg-empty-folder *ngIf="state.isFolder && state.empty && !state.opened"></svg-empty-folder> -->
+                <!-- <svg-empty-opened-folder *ngIf="state.isFolder && state.empty && state.opened"></svg-empty-opened-folder> -->
+                <b>{{node?.name}}</b>

@@ -1,6 +1,6 @@
 export interface RegisterRequestInterface {
     fname: string;
-    lname: string;
+    l_name: string;
     email: string;
     password: string;
 }

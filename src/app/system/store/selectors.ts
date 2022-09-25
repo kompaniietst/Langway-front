@@ -16,5 +16,9 @@ export const currentEntitySelector = createSelector
 
 export const entitiesSelector = createSelector
     (createFeatureSelector<TreeStateInterface>('entities'),
-        (entitiesState: TreeStateInterface) => entitiesState.entities)
+        (entitiesState: TreeStateInterface) => {
+            // console.log('tree selector', entitiesState.entities);
+            
+            return entitiesState.entities
+        })
 

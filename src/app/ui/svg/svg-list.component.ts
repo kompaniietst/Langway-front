@@ -28,7 +28,7 @@ import { Component } from "@angular/core";
 
         svg {
             width: 34px;
-            height: 40px;
+            height: 35px;
             margin-right: 20px;
         }`
     ]

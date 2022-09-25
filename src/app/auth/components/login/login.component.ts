@@ -16,7 +16,13 @@ export class LoginComponent implements OnInit {
   isSubmitting$!: Observable<boolean | null>;
   error$!: Observable<any>;
 
-  constructor(private store: Store, private authService: AuthService) { }
+  constructor(private store: Store, private authService: AuthService) {
+    
+  }
+
+  click() {
+    this.authService.getw().subscribe(X => console.log('X', X))
+  }
 
   ngOnInit(): void {
     this.initForm();
@@ -34,5 +40,6 @@ export class LoginComponent implements OnInit {
   onSubmit(): void {
     this.store.dispatch(
       loginAction({ request: this.form.value }));
+    // this.authService.loginW(this.form.value).subscribe((x:any) => console.log('login', x))
   }
 }

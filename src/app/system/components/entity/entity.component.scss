@@ -1,9 +1,18 @@
 :host {
     display: flex;
     justify-content: space-between;
+    width: 100%;
 }
 .entity {
     display: flex;
+    &.active {
+        padding: 5px 9px 0px;
+        border-radius: 5px;
+        margin-left: -10px;
+        box-shadow: 0 11px 17px #00000015;
+        width: 100%;
+        border: 2px dashed#6ec400;
+    }
 }
 span,
 svg {
@@ -24,17 +33,18 @@ svg {
 }
 
 svg {
-    width: 34px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     margin-right: 20px;
     display: inline-block;
 }
 b {
-    padding-top: 9px;
+    padding-top: 4px;
     display: inline-block;
+    width: 100%;
 }
 .st00 {
-    fill: #ffe197;
+    fill: #D3CB2B;
 }
 
 .st10 {
@@ -42,5 +52,5 @@ b {
 }
 
 .st20 {
-    fill: #ffe197;
+    fill: #D3CB2B;
 }

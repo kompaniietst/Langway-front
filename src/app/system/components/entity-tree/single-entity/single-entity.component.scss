@@ -1,0 +1,29 @@
+:host {
+    display: flex;
+    cursor: pointer;
+    padding: 5px 9px 0px;
+    box-shadow: 0 11px 17px transparent;
+    border-radius: 5px;
+    width: 100%;
+    border: 2px dashed transparent;
+    transition: 0.2s;
+    &.active {
+        box-shadow: 0 11px 17px #00000015;
+        border: 2px dashed#6ec400;
+    }
+    &:hover {
+        border: 2px dashed#6ec400;
+        transition: 0.2s;
+    }
+}
+svg {
+    width: 35px;
+    height: 35px;
+    margin-right: 20px;
+    display: inline-block;
+}
+b {
+    padding-top: 4px;
+    display: inline-block;
+    width: 100%;
+}

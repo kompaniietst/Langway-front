@@ -7,7 +7,7 @@ import { Component } from "@angular/core";
     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
     viewBox="0 0 288 227.6" style="enable-background:new 0 0 288 227.6;" xml:space="preserve">
 <style type="text/css">
-   .st0{fill:#FFE197;}
+   .st0{fill:#D3CB2B;}
    .st1{fill:#FFFFFF;}
 </style>
 <g>
@@ -29,7 +29,7 @@ import { Component } from "@angular/core";
     styles: [
         `
         .st0 {
-            fill: #ffe197;
+            fill: #D3CB2B;
         }
 
         .st1 {
@@ -37,11 +37,11 @@ import { Component } from "@angular/core";
         }
 
         .st2 {
-            fill: #ffe197;
+            fill: #D3CB2B;
         }
         svg {
-            width: 40px;
-            height: 40px;
+            width: 35px;
+            height: 35px;
             margin-right: 20px;
         }
         `

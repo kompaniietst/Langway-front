@@ -1,8 +1,9 @@
-<div class="entity">
+<div class="entity" (click)="activateItem(entity.id)" [ngClass]="{'active' : entity.id === activeEntityId}">
     <!-- TODO: make 1 component -->
+    <!-- {{entity.id}} _ {{id}} -->
     <svg-list *ngIf="state.isFile"></svg-list>
 
-    <svg-folder *ngIf="!state.opened && state.opened && !state.empty"></svg-folder>
+    <svg-folder *ngIf="!state.opened && !state.empty"></svg-folder>
     <svg-opened-folder *ngIf="state.isFolder && state.opened && !state.empty"></svg-opened-folder>
 
    <!-- {{ state.isFolder}} && {{state.empty}} && {{state.opened}} -->

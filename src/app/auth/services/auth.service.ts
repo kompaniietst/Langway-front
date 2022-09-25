@@ -13,12 +13,23 @@ export class AuthService {
 
     constructor(private http: HttpClient) { }
 
+    getw() {
+        return this.http.post(this.url + 'welcome', {});
+    }
+
     register(data: RegisterRequestInterface): Observable<CurrentUserInterface> {
         return this.http.post<AuthResponceInterface>(this.url + 'register', data);
     }
 
     login(data: LoginRequestInterface): Observable<CurrentUserInterface> {
+        this.http.post<AuthResponceInterface>(this.url + 'login', data)
+            .subscribe(x => console.log('login', x))
         return this.http.post<AuthResponceInterface>(this.url + 'login', data);
+    }
+
+    loginW(data: any): any {
+        return this.http.post(this.url + 'login', data)
+
     }
 
     getCurrentUser(): Observable<CurrentUserInterface> {

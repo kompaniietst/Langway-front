@@ -17,7 +17,7 @@ import { Component } from "@angular/core";
     styles: [
         `
         .st0 {
-            fill: #ffe197;
+            fill: #D3CB2B;
         }
 
         .st1 {
@@ -25,12 +25,12 @@ import { Component } from "@angular/core";
         }
 
         .st2 {
-            fill: #ffe197;
+            fill: #D3CB2B;
         }
 
         svg {
-            width: 40px;
-            height: 40px;
+            width: 35px;
+            height: 35px;
             margin-right: 20px;
         }`
     ]

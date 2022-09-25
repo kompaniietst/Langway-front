@@ -1,10 +1,49 @@
-<div *ngFor="let item of children" class="entity-container">
+<!-- 
+<ng-template #nodeTemplateRef let-node>
+ 
+	<div class="node" [class.node--selected]="( node === selectedTreeNode )">
+ 
+		<a (click)="selectNode( node )" class="node__label">
+			{{ node.label }}
+		</a>
+ 
+		<div *ngIf="node.children.length" class="node__children">
+ 
+			<ng-template
+				ngFor
+				[ngForOf]="node.children"
+				[ngForTemplate]="nodeTemplateRef">
+			</ng-template>
+ 
+		</div>
+ 
+	</div>
+ 
+</ng-template>
+ 
+<ng-template
+	[ngTemplateOutlet]="nodeTemplateRef"
+	[ngTemplateOutletContext]="{ $implicit: data.root }">
+</ng-template> -->
+ 
+
+
+
+
+<hr>
+
+
+
+
+
+
+
+<!-- <div *ngFor="let item of children" class="entity-container">
     <div class="entity">
-        <app-entity [entity]="item" [openedDirectories]="openedDirectories" (click)="activateItem(item)">
-        </app-entity>
+        <app-entity [entity]="item" [activeEntityId]="activeEntityId" (click)="selectActiveItem(item)"></app-entity>
         <app-item-toolbar [itemId]="item.id" (onRemove)="onRemove(item.id)" (onEdit)="onEdit(item.id)">
         </app-item-toolbar>
     </div>
-    <app-entities *ngIf="item?.children?.length > 0 && openedDirectories.includes(item.id)" [children]="item.children">
+    <app-entities *ngIf="item?.children?.length" [children]="item.children">
     </app-entities>
-</div>
+</div> -->

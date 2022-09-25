@@ -2,7 +2,7 @@
 export interface CurrentUserInterface {
     id: string;
     fname: string;
-    lname: string;
+    l_name: string;
     email: string;
     token: string;
 }

@@ -19,6 +19,7 @@ import { EntitiesComponent } from './components/entities/entities.component';
 import { EntityComponent } from './components/entity/entity.component';
 import { SharedModule } from '../shared/components/shared.module';
 import { ContainerModule } from '../words/components/container/container.module';
+import { SingleEntityComponent } from './components/entity-tree/single-entity/single-entity.component';
 
 const routes: Routes = [
   { path: "entities", component: ContainerComponent },
@@ -34,6 +35,7 @@ const routes: Routes = [
     EntitiesComponent,
     ListComponent,
     EntityComponent,
+    SingleEntityComponent,
   ],
   imports: [
     CommonModule,
