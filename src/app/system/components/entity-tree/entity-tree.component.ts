@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { EntityService } from '../../services/entity.service';
 import { getEntitiesAction } from '../../store/actions/get-entities.actions';
-import { entitiesSelector } from '../../store/selectors';
+import { currentEntitySelector, entitiesSelector } from '../../store/selectors';
 import { TreeInterface } from '../../tree/tree.interface';
 import { EntityInterface } from '../../types/entity.interface';
 
@@ -23,7 +24,7 @@ export class EntityTreeComponent implements OnInit {
   entities$!: Observable<TreeInterface | null>;
   isActiveId!: string;
 
-  openedDirectories!: string[];
+  openedDirectories: string[] = [];
 
   state: State = {
     empty: false,
@@ -32,7 +33,7 @@ export class EntityTreeComponent implements OnInit {
     isFolder: false
   };
 
-  constructor(private store: Store, private entityService: EntityService) { }
+  constructor(private store: Store, private entityService: EntityService, private router: Router) { }
 
   // public selectNode(node: any): void {
   //   this.id = node.id;
@@ -40,10 +41,10 @@ export class EntityTreeComponent implements OnInit {
   //   console.log('item', node);
 
 
-    // console.group( "Selected Tree Node" );
-    // console.log( "Label:", node.label );
-    // console.log( "Children:", node.children.length );
-    // console.groupEnd();
+  // console.group( "Selected Tree Node" );
+  // console.log( "Label:", node.label );
+  // console.log( "Children:", node.children.length );
+  // console.groupEnd();
 
   // }
 
@@ -52,9 +53,15 @@ export class EntityTreeComponent implements OnInit {
     // console.log("ID ", id);
     // this.id = id;
     // this.isActive = entity.id;
+
+    if (entity.type === 'file') {
+      this.openList(entity.id);
+    }
+
     this.isActiveId = entity.id;
 
     console.log('item', entity);
+    // debugger;
 
     if (this.openedDirectories?.includes(entity.id)) {
       let i = this.openedDirectories.indexOf(entity.id);
@@ -62,13 +69,20 @@ export class EntityTreeComponent implements OnInit {
     }
     else
       this.openedDirectories?.push(entity.id);
+
     this.state = { ...this.state, opened: true }
     // this.state = {...this.state, opened: true, isFolder: true, empty: entity?.children?.length! > 0}
 
     this.entityService.openedDirectoriesSubject.next(this.openedDirectories);
-    // console.log('this.openedDirectories', this.openedDirectories);
+    console.log('this.openedDirectories', this.openedDirectories);
 
     // console.log('this.activeEntityId', this.activeEntityId);
+
+
+    this.entityService.nodePathSubject.next([...entity.path, entity.id]);
+
+    console.log('path: ', [...entity.path, entity.id]);
+
 
   }
 
@@ -76,9 +90,19 @@ export class EntityTreeComponent implements OnInit {
   ngOnInit(): void {
     this.store.dispatch(getEntitiesAction());
     this.entities$ = this.store.select(entitiesSelector)!;
-    this.store.select(entitiesSelector)
-      .subscribe(x => console.log(x)
-      )
+    this.store.select(currentEntitySelector)
+      .subscribe((entity: any) => this.isActiveId = entity?.id)
+
+
+
+
+    this.entityService.openedDirectoriesSubject
+      .subscribe((directories: string[]) => {
+        this.openedDirectories = directories;
+        // console.log('OD ', this.openedDirectories);
+
+      });
+
   }
 
   remove() {
@@ -88,5 +112,10 @@ export class EntityTreeComponent implements OnInit {
 
   checkState(entity: EntityInterface, state: string) {
     return this.openedDirectories?.includes(entity.id);
+  }
+  
+
+  openList(id: string) {
+    this.router.navigate([`/entities/list/${id}`]);
   }
 }

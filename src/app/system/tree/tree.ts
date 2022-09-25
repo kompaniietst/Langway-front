@@ -4,7 +4,6 @@ import { TreeInterface } from "./tree.interface";
 
 export class Tree extends Node implements TreeInterface {
     insert(node: NodeInterface) {
-        // debugger;
         let tree = this;
 
         if (node.path.length === 0) {

@@ -19,7 +19,7 @@ export class AddEntityComponent implements OnInit {
 
   constructor(private store: Store, private entityService: EntityService) {
 
-    this.entityService.entityPathSubject
+    this.entityService.nodePathSubject
       .subscribe((path: string[]) => {
         this.path = path
       });
@@ -38,6 +38,8 @@ export class AddEntityComponent implements OnInit {
   }
 
   onSubmit(): void {
+    console.log(this.path);
+    
     this.form.addControl("path", new FormControl(this.path));
     const request = this.form.value;
 

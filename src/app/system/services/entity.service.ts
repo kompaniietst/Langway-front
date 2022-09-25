@@ -14,6 +14,7 @@ export class EntityService {
     
     // entitypathSubj
     entityPathSubject = new Subject<string[]>();
+    nodePathSubject = new Subject<string[]>();
 
     // openedDirectories
     openedDirectoriesSubject = new BehaviorSubject<string[]>([]);

@@ -1,18 +1,21 @@
-<!-- <div (click)="remove()">Clear DB</div>
-<div *ngIf="((entities$ | async)?.children)">
+<!-- <div (click)="remove()">Clear DB</div> -->
+<!-- <div *ngIf="((entities$ | async)?.children)">
     <app-entities [children]="(entities$ | async)?.children"></app-entities>
 </div> -->
 
 <ng-template #nodeTemplateRef let-node>
     <div class="entity-container">
 
-        <app-single-entity (click)="activateItem(node)" class="entity" [ngClass]="{'active' : isActiveId === node?.id}"
-            [node]="node" [isActive]="isActiveId === node?.id"></app-single-entity>
+        <ng-container *ngIf="node?.name">
+            <app-single-entity (click)="activateItem(node)" class="entity"
+                [ngClass]="{'active' : isActiveId === node?.id}" [node]="node" [isActive]="isActiveId === node?.id" [opened]="openedDirectories.includes(node?.id)">
+            </app-single-entity>
+        </ng-container>
 
         <div *ngIf="node?.children?.length" class="node__children">
             <ng-template ngFor [ngForOf]="node?.children" [ngForTemplate]="nodeTemplateRef"></ng-template>
         </div>
-        
+
     </div>
 </ng-template>
 
