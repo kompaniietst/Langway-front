@@ -13,7 +13,7 @@ import { EntityService } from './services/entity.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ContainerComponent } from './components/container/container.component';
 import { EntitiesEffect } from './store/effects/entities.effect';
-import { UIModule } from '../ui/ui.module';
+import { UIModule } from '../UI/UI.module';
 import { ListComponent } from './components/list/list.component';
 import { SharedModule } from '../shared/components/shared.module';
 import { ContainerModule } from '../words/components/container/container.module';

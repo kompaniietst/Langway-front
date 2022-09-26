@@ -10,6 +10,7 @@ import { CreateWordEffect } from './store/effects/create-word.effect';
 import { WordService } from './services/word.service';
 import { reducer as wordsReducer} from './store/reducers/words-reducer';
 import { WordsEffect } from './store/effects/words.effect';
+import { UIModule } from '../UI/UI.module';
 
 
 
@@ -26,10 +27,11 @@ import { WordsEffect } from './store/effects/words.effect';
     StoreModule.forFeature('create word', createWordReducer),
     StoreModule.forFeature('words', wordsReducer),
     EffectsModule.forFeature([CreateWordEffect, WordsEffect]),
+    UIModule
   ],
   exports: [
     AddWordComponent,
-    WordsComponent
+    WordsComponent,
   ],
   providers: [
     WordService

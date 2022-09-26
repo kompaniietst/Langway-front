@@ -1,13 +1,15 @@
-<form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <h3>Add a new word</h3>
-    <div>
-        <input placeholder="word" formControlName="word">
-    </div>
-    <div>
-        <input placeholder="translate" formControlName="translate">
-    </div>
-    <div>
-        <input placeholder="transcription" formControlName="transcription">
-    </div>
-    <div><button type="submit">Add</button></div>
-</form>
+<app-form>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <h3>Add a new word</h3>
+        <div>
+            <input placeholder="word" formControlName="word">
+        </div>
+        <div>
+            <input placeholder="translate" formControlName="translate">
+        </div>
+        <div>
+            <input placeholder="transcription" formControlName="transcription">
+        </div>
+        <div><button type="submit">Add</button></div>
+    </form>
+</app-form>

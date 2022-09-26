@@ -4,6 +4,8 @@ import { SvgEmptyOpenedFolderComponent } from "./svg/svg-empty-opened-folder.com
 import { SvgFolderComponent } from "./svg/svg-folder.component";
 import { SvgListComponent } from "./svg/svg-list.component";
 import { SvgOpenedFolderComponent } from "./svg/svg-opened-folder.component";
+import { FormComponent } from './form/form.component';
+import { TwoColumnsSectionComponent } from './two-columns-section/two-columns-section.component';
 
 @NgModule({
     imports: [],
@@ -12,14 +14,18 @@ import { SvgOpenedFolderComponent } from "./svg/svg-opened-folder.component";
         SvgOpenedFolderComponent,
         SvgEmptyFolderComponent,
         SvgEmptyOpenedFolderComponent,
-        SvgListComponent
+        SvgListComponent,
+        FormComponent,
+        TwoColumnsSectionComponent
     ],
     exports: [
         SvgFolderComponent,
         SvgOpenedFolderComponent,
         SvgEmptyFolderComponent,
         SvgEmptyOpenedFolderComponent,
-        SvgListComponent
+        SvgListComponent,
+        FormComponent,
+        TwoColumnsSectionComponent
     ]
 })
 export class UIModule { }

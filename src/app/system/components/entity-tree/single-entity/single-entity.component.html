@@ -1,7 +1,7 @@
 <svg-list *ngIf="state.isFile"></svg-list>
-<svg-opened-folder *ngIf="state.isFolder && !state.empty && state.opened"></svg-opened-folder>
-<svg-folder *ngIf="state.isFolder && !state.empty && !state.opened"></svg-folder>
-<svg-empty-folder *ngIf="state.isFolder && state.empty && !state.opened"></svg-empty-folder>
-<svg-empty-opened-folder *ngIf="state.isFolder && state.empty && state.opened"></svg-empty-opened-folder>
+<!-- <svg-opened-folder *ngIf="state.isFolder && !state.empty && state.opened"></svg-opened-folder> -->
+<svg-folder *ngIf="state.isFolder && !state.empty"></svg-folder>
+<svg-empty-folder *ngIf="state.isFolder && state.empty"></svg-empty-folder>
+<!-- <svg-empty-opened-folder *ngIf="state.isFolder && state.empty && state.opened"></svg-empty-opened-folder> -->
 
 <b>{{node?.name}}</b>

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ContainerComponent } from './container.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { WordsModule } from '../../words.module';
+import { UIModule } from 'src/app/UI/UI.module';
 
 
 
@@ -12,7 +13,8 @@ import { WordsModule } from '../../words.module';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    WordsModule
+    WordsModule,
+    UIModule
   ],
   exports: [
     ContainerComponent

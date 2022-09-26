@@ -1,0 +1,13 @@
+::ng-deep .container {
+    display: flex;
+    padding: 0;
+    margin: auto;
+    padding: 0 50px;
+    .content {
+        flex: 3;
+    }
+    .form-wrapper {
+        flex: 1;
+        margin-left: 50px;
+    }
+}

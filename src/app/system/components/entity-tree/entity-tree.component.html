@@ -4,14 +4,16 @@
 </div> -->
 
 <ng-template #nodeTemplateRef let-node>
+
     <div class="entity-container">
 
         <ng-container *ngIf="node?.name">
             <app-single-entity (click)="activateItem(node)" class="entity"
-                [ngClass]="{'active' : isActiveId === node?.id}" [node]="node" [isActive]="isActiveId === node?.id" [opened]="openedDirectories.includes(node?.id)">
+                [ngClass]="{'active' : isActiveId === node?.id}" [node]="node" [isActive]="isActiveId === node?.id"
+                [opened]="openedDirectories.includes(node?.id)">
             </app-single-entity>
         </ng-container>
-
+        <!-- {{node?.children?.length}} {{openedDirectories.includes(node?.id) }} {{node?.name}} -->
         <div *ngIf="node?.children?.length" class="node__children">
             <ng-template ngFor [ngForOf]="node?.children" [ngForTemplate]="nodeTemplateRef"></ng-template>
         </div>

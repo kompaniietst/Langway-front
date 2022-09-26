@@ -1,18 +1,20 @@
-<form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <h3>Add a new entity</h3>
-    <div>
-        <input type="text" placeholder="name" formControlName="name">
-    </div>
-    <div class="radio-group">
-        <label for="folder">
-            <input id="folder" type="radio" name="type" value="folder" formControlName="type">
-            Folder
-        </label>
-        <label for="list">
-            <input id="list" type="radio" name="type" value="file" formControlName="type">
-            File
-        </label>
-    </div>
-    <div class="error">{{ error$ | async }}</div>
-    <button type="submit">Submit</button>
-</form>
+<app-form>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <h3>Add a new entity</h3>
+        <div>
+            <input type="text" placeholder="name" formControlName="name">
+        </div>
+        <div class="radio-group">
+            <label for="folder">
+                <input id="folder" type="radio" name="type" value="folder" formControlName="type">
+                Folder
+            </label>
+            <label for="list">
+                <input id="list" type="radio" name="type" value="file" formControlName="type">
+                File
+            </label>
+        </div>
+        <div class="error">{{ error$ | async }}</div>
+        <button type="submit">Submit</button>
+    </form>
+</app-form>

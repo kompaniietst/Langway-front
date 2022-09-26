@@ -88,10 +88,14 @@ export class EntityTreeComponent implements OnInit {
 
 
   ngOnInit(): void {
+    // this.entities$?.subscribe(es=>console.log('entities ', es));
+    
     this.store.dispatch(getEntitiesAction());
     this.entities$ = this.store.select(entitiesSelector)!;
     this.store.select(currentEntitySelector)
       .subscribe((entity: any) => this.isActiveId = entity?.id)
+      this.store.select(entitiesSelector)
+      .subscribe((entities: any) => console.log('entities ',entities));
 
 
 
@@ -110,10 +114,6 @@ export class EntityTreeComponent implements OnInit {
     this.entities$ = this.store.select(entitiesSelector)!;
   }
 
-  checkState(entity: EntityInterface, state: string) {
-    return this.openedDirectories?.includes(entity.id);
-  }
-  
 
   openList(id: string) {
     this.router.navigate([`/entities/list/${id}`]);
